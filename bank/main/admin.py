@@ -6,6 +6,7 @@ from .models import *
 class CustomerProfileAdmin(admin.ModelAdmin):
     list_display=['id','prof_for','phone','email']
 
+# admin.site.register(Account)
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
     list_display=['id','acc_no','acc_for','acc_type', 'acc_bal']
