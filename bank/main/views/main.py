@@ -6,3 +6,6 @@ def index(request):
 
 def account_no(request):
     return render(request, "account_no.html")
+
+def video(request):
+    return render(request, "video.html")

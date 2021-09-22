@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <!-- bootstrap  -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@300;400;500;900&display=swap"
+        rel="stylesheet" />
+
+    <title> Login | GTD Bank </title>
+</head>
+
+<body>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5" id="prompt_text">
+                    <h2 class="heading-section">You need to record a 5 seconds video</h2>
+                    <h4>It is advised to sit in a well-lit room</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-10">
+                    <div class="login-wrap p-4 p-md-5">
+
+                        <form action="#" class="login-form" id="login-form">
+                            <!-- 8-digit CRN -->
+                            <div class="left">
+
+                                <div class="text-center">
+                                    <div id="startButton" class="btn btn-primary rounded submit p-3 px-5 col-md-6">
+                                        Click to start video
+                                    </div>
+                                </div>
+                                <!-- onclick="setTimeout(triggerTimer, 1000)" -->
+                                <div class="container" id="video-container">
+                                    <div class="row" id="vid-box-1">
+                                        <div class="mx-auto">
+                                            <!-- <h2 id="warn_text" class="mx-auto">Hold still while we are recording your video</h2> -->
+                                            <h3 id="recording_countdown_text" class="text-center mt-4">
+                                                Recording ends in <span id="timerButton">5</span>
+                                            </h3>
+                                            <video id="preview" width="100%" height="90%" class="mr-3 pr-3" autoplay muted style="object-fit: cover;"></video>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                    <div class="row" id="vid-box-2">
+                                        <div class="mx-auto">
+                                            <div id="stopButton" class="button">Stop</div>
+                                            <h2 id="record_text" class="heading-section text-center">
+                                                Recorded video, refresh to re-record
+                                            </h2>
+                                            <video id="recording" width="100%" height="90%" controls style="object-fit: cover;"></video>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group d-flex justify-content-center align-items-center">
+                                <button type="submit" class="btn btn-primary col-md-6 rounded submit-video p-3 px-5 text-center"
+                                    id="downloadButton">Submit video</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/video.js' %}"></script>
+
+</body>
+
+</html>
