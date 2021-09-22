@@ -3,3 +3,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("hey")
+
+def account_no(request):
+    return render(request, "account_no.html")
