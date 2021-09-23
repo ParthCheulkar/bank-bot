@@ -49,6 +49,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@300;400;500;900&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
+
     {% block pgcss %} {% endblock pgcss %}
 
     <title>GTD Bank | {% block title %} {% endblock title %}</title>
@@ -140,6 +143,22 @@
         </footer>
       </div> {% endcomment %}
     <!-- JavaScript Bundle with Popper -->
+    <div id="chat-container"></div>
+
+  <!-- <script src="https://drive.google.com/uc?id=1QslZLwqbJl471otp1Ph1y8MLHSzKqCPl"></script> -->
+  <script src="{% static 'js/chatroom.js' %}"></script>
+
+  <script>
+    createChatBot(
+      (host = "http://localhost:5005/webhooks/rest/webhook"),
+      (botLogo = "../static/images/bot-logo.png"),
+      (title = "Covid BOT "),
+      (welcomeMessage = "Hey, i am Covid Bot "),
+      (inactiveMsg =
+        "Server is down, Please contact the developer to activate it "),
+      (theme = "blue ")
+    );
+  </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"

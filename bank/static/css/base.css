@@ -1,9 +1,9 @@
 /* just a css file */
-
 body {
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
   background-color: #fffeff;
+  overflow-x: hidden;
 }
 .navbar {
   width: 100vw;
