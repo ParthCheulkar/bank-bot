@@ -39,7 +39,7 @@ ACCOUNT_TYPES = [
 class Account(models.Model):
     acc_for = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
     acc_no = models.CharField(max_length=10)
-    acc_bal = models.DecimalField(max_digits=7, decimal_places=4)
+    acc_bal = models.DecimalField(max_digits=12, decimal_places=4)
     acc_type = models.CharField(choices=ACCOUNT_TYPES, max_length=50)
 
     def __str__(self):
