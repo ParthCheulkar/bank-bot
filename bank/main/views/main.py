@@ -15,3 +15,6 @@ def profile(request):
 
 def loan(request):
     return render(request, "loan.html")
+    
+def transfermoney(request):
+    return render(request, "transfer_money.html")

@@ -1,47 +1,524 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-{% block title %} Loans | {% endblock title %} 
-{% block pgcss %} 
-<link rel="stylesheet" href="{% static 'css/loan.css' %}">        
-{% endblock pgcss %}
-{% block pagetitle %}Loans{% endblock pagetitle %}
+{% extends 'base.html' %} {% load static %} {% block content %} 
+{% block title %} Loans | {% endblock title %} {% block pgcss %}
+<link rel="stylesheet" href="{% static 'css/loan.css' %}" />
+{% endblock pgcss %} {% block pagetitle %}Loans{% endblock pagetitle %}
 <div>
-    <div id="loan-card" class="row">
-        
-        <div class="col-md-6 col-xs-12" id="loan-card-content" >
-            <div class="row">
-                <div class="col-xs-6">
-                    <h6 id="loan-title">Something</h6>
-                </div>
-                <div class="col-xs-6" id="button-div">
-                    <button id="view-info-btn" class="btn btn-primary" type="button" role="button" data-bs-toggle="modal" data-bs-target="#loan-modal-1" >More info</button>
-                </div>
-                <div id="loan-text" class="col-xs-12">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero blanditiis, nobis debitis quo, impedit totam similique fugiat, repudiandae atque officiis voluptatem! Quod in quaerat enim recusandae animi est praesentium dignissimos.</p>
-                </div>
-            </div>
+  <div id="loan-card" class="row">
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <div class="row">
+        <div class="col-xs-12">
+          <h6 id="loan-title">Something</h6>
         </div>
-        <div id="loan-card-img" class="col-md-6 col-xs-12">
-            <span class="iconify" data-icon="mdi:brightness-percent" style="color: #0c0;" data-width="200" data-height="200"></span>
-            <span class="iconify" data-icon="entypo:location" style="color: #be2100;" data-width="200" data-height="200"></span>
-            <span class="iconify" data-icon="grommet-icons:user-manager" style="color: #ffc919;" data-width="200" data-height="200"></span>
-            <span class="iconify" data-icon="clarity:rupee-solid" style="color: rgb(5, 78, 187);" data-width="200" data-height="200"></span>
 
+        <div id="loan-text" class="col-xs-12">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            blanditiis, nobis debitis quo, impedit totam similique fugiat,
+            repudiandae atque officiis voluptatem! Quod in quaerat enim
+            recusandae animi est praesentium dignissimos. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Ratione omnis incidunt fugit
+            itaque consectetur esse ex, placeat labore amet officiis veniam,
+            harum ad molestias laborum rem cum temporibus, provident quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            consequuntur vel fugit quasi nobis beatae neque itaque debitis iusto
+            voluptatum? Nesciunt dolore voluptates vero nemo laboriosam nulla
+            perspiciatis nisi minima?
+          </p>
         </div>
-        <div class="modal fade" id="loan-modal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque a culpa accusantium nulla, quasi nesciunt repellendus blanditiis! Pariatur id quae, maiores modi tempore eveniet quaerat inventore reiciendis facilis cum! Illo!
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      </div>
     </div>
+    <div id="loan-card-img" class="col-md-6 col-xs-12 row">
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="mdi:brightness-percent"
+          style="color: #0c0"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="entypo:location"
+          style="color: #be2100"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="grommet-icons:user-manager"
+          style="color: #ffc919"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="clarity:rupee-solid"
+          style="color: rgb(5, 78, 187)"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="loan-modal-1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            a culpa accusantium nulla, quasi nesciunt repellendus blanditiis!
+            Pariatur id quae, maiores modi tempore eveniet quaerat inventore
+            reiciendis facilis cum! Illo!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <button
+        id="view-info-btn"
+        class="btn"
+        role="button"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loan-modal-1"
+      >
+        View Info
+      </button>
+      <button id="appointment-btn" class="btn" role="button" type="button">
+        Book an Appointment
+      </button>
+    </div>
+  </div>
+  <div id="loan-card" class="row">
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <div class="row">
+        <div class="col-xs-12">
+          <h6 id="loan-title">Something</h6>
+        </div>
+
+        <div id="loan-text" class="col-xs-12">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            blanditiis, nobis debitis quo, impedit totam similique fugiat,
+            repudiandae atque officiis voluptatem! Quod in quaerat enim
+            recusandae animi est praesentium dignissimos. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Ratione omnis incidunt fugit
+            itaque consectetur esse ex, placeat labore amet officiis veniam,
+            harum ad molestias laborum rem cum temporibus, provident quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            consequuntur vel fugit quasi nobis beatae neque itaque debitis iusto
+            voluptatum? Nesciunt dolore voluptates vero nemo laboriosam nulla
+            perspiciatis nisi minima?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="loan-card-img" class="col-md-6 col-xs-12 row">
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="mdi:brightness-percent"
+          style="color: #0c0"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="entypo:location"
+          style="color: #be2100"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="grommet-icons:user-manager"
+          style="color: #ffc919"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="clarity:rupee-solid"
+          style="color: rgb(5, 78, 187)"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="loan-modal-1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            a culpa accusantium nulla, quasi nesciunt repellendus blanditiis!
+            Pariatur id quae, maiores modi tempore eveniet quaerat inventore
+            reiciendis facilis cum! Illo!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <button
+        id="view-info-btn"
+        class="btn"
+        role="button"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loan-modal-1"
+      >
+        View Info
+      </button>
+      <button id="appointment-btn" class="btn" role="button" type="button">
+        Book an Appointment
+      </button>
+    </div>
+  </div>
+  <div id="loan-card" class="row">
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <div class="row">
+        <div class="col-xs-12">
+          <h6 id="loan-title">Something</h6>
+        </div>
+
+        <div id="loan-text" class="col-xs-12">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            blanditiis, nobis debitis quo, impedit totam similique fugiat,
+            repudiandae atque officiis voluptatem! Quod in quaerat enim
+            recusandae animi est praesentium dignissimos. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Ratione omnis incidunt fugit
+            itaque consectetur esse ex, placeat labore amet officiis veniam,
+            harum ad molestias laborum rem cum temporibus, provident quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            consequuntur vel fugit quasi nobis beatae neque itaque debitis iusto
+            voluptatum? Nesciunt dolore voluptates vero nemo laboriosam nulla
+            perspiciatis nisi minima?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="loan-card-img" class="col-md-6 col-xs-12 row">
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="mdi:brightness-percent"
+          style="color: #0c0"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="entypo:location"
+          style="color: #be2100"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="grommet-icons:user-manager"
+          style="color: #ffc919"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="clarity:rupee-solid"
+          style="color: rgb(5, 78, 187)"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="loan-modal-1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            a culpa accusantium nulla, quasi nesciunt repellendus blanditiis!
+            Pariatur id quae, maiores modi tempore eveniet quaerat inventore
+            reiciendis facilis cum! Illo!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <button
+        id="view-info-btn"
+        class="btn"
+        role="button"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loan-modal-1"
+      >
+        View Info
+      </button>
+      <button id="appointment-btn" class="btn" role="button" type="button">
+        Book an Appointment
+      </button>
+    </div>
+  </div>
+  <div id="loan-card" class="row">
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <div class="row">
+        <div class="col-xs-12">
+          <h6 id="loan-title">Something</h6>
+        </div>
+
+        <div id="loan-text" class="col-xs-12">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            blanditiis, nobis debitis quo, impedit totam similique fugiat,
+            repudiandae atque officiis voluptatem! Quod in quaerat enim
+            recusandae animi est praesentium dignissimos. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Ratione omnis incidunt fugit
+            itaque consectetur esse ex, placeat labore amet officiis veniam,
+            harum ad molestias laborum rem cum temporibus, provident quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            consequuntur vel fugit quasi nobis beatae neque itaque debitis iusto
+            voluptatum? Nesciunt dolore voluptates vero nemo laboriosam nulla
+            perspiciatis nisi minima?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="loan-card-img" class="col-md-6 col-xs-12 row">
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="mdi:brightness-percent"
+          style="color: #0c0"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="entypo:location"
+          style="color: #be2100"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="grommet-icons:user-manager"
+          style="color: #ffc919"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+      <div id="loan-characteristics" class="col-md-6 col-xs-12">
+        <span
+          class="iconify"
+          data-icon="clarity:rupee-solid"
+          style="color: rgb(5, 78, 187)"
+          data-width="45"
+          data-height="45"
+        ></span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est
+          quas, officiis delectus quidem pariatur facere error accusantium
+          corporis labore obcaecati dolore recusandae id qui earum magni,
+          inventore neque dicta!
+        </p>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="loan-modal-1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            a culpa accusantium nulla, quasi nesciunt repellendus blanditiis!
+            Pariatur id quae, maiores modi tempore eveniet quaerat inventore
+            reiciendis facilis cum! Illo!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12" id="loan-card-content">
+      <button
+        id="view-info-btn"
+        class="btn"
+        role="button"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loan-modal-1"
+      >
+        View Info
+      </button>
+      <button id="appointment-btn" class="btn" role="button" type="button">
+        Book an Appointment
+      </button>
+    </div>
+  </div>
 </div>
 
-{% endblock content %} 
+{% endblock content %}
