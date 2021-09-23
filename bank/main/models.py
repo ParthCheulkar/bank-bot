@@ -59,7 +59,7 @@ TRANSACTION_TYPE = [
 class Transaction(models.Model):
     transaction_type = models.CharField(choices=TRANSACTION_TYPE,max_length=50)
     sender = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='sender')
-    receiver = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='reciever')
+    receiver = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='receiver')
     amount = models.DecimalField(max_digits=7, decimal_places=4)
     trxn_date = models.DateField(default=timezone.now)
     status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)

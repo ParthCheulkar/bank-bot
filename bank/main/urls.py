@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import authentication, main, chatroom
+from .views import authentication, main, chatroom, transactions
 
 urlpatterns = [
     path('', main.index, name="base"),
@@ -8,4 +8,6 @@ urlpatterns = [
     path('login/account_no', main.account_no, name="account_no"),
     path('login/video', main.video, name="video"),
     path('profile/', main.profile, name="profile"),
+    path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
+
 ]
