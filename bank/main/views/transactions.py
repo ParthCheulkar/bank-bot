@@ -23,4 +23,4 @@ def get_transactions(request):
     #     else:
     #         print(f"green {transaction.amount}")
     
-    return render(request, 'account_activity.html', {"transactions":transactions})
+    return render(request, 'account_activity.html', {"transactions":transactions, "user_account":user_account})
