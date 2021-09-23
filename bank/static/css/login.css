@@ -106,6 +106,7 @@
   background: #8d448b !important;
   border: 1px solid #8d448b !important;
   color: #fff !important;
+  font-size: 16px !important;
 }
 .btn.btn-primary:hover {
   border: 1px solid #8d448b;
@@ -125,14 +126,41 @@ input[type="button"].btn-block {
 .form-group .submit {
   position: absolute;
   top: 20px;
-  left: 136px;
+  /* left: 136px; */
+  left: 9em;
+  right: 0;
+  margin: 0 auto;
+}
+.form-group .submit-video {
+  position: absolute;
+  top: 20px;
+  /* left: 136px; */
+  left: 0em;
   right: 0;
   margin: 0 auto;
 }
 @media (max-width: 767.98px) {
   .form-group .submit {
     top: 0;
+	left: 7.2em;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+	margin-top: 10px;
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
   }
+
+  .form-group .submit-video {
+    top: 0;
+	left: 7.2em;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+	margin-top: 64px;
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+  }
+
+
 }
 
 .error 
