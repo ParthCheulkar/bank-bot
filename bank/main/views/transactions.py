@@ -16,8 +16,7 @@ def get_transactions(request):
     # user = request.user
     user = User.objects.get(username="Shyren@473793737284")
     if request.method == 'POST':
-        acc_type=request.POST['acc_type']
-        user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user), acc_type=acc_type)
+        user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
         transactions = Transaction.objects.filter(Q(sender=user_account) | Q(receiver=user_account))
         for transaction in transactions:
             if transaction.sender == user_account:
