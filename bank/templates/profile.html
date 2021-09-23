@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+{% block pgcss %} 
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">        
+{% endblock pgcss %}
+
+
+<div class="emp-profile container d-flex justify-content-around align-content-center">
+    <form method="post" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>Shyren More</h5>
+                    <h6> Bank Profile </h6>
+                    <p class="proile-info">If you want to update your profile, kindly contact the bank</p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active disabled" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="profile-img">
+                    <img src="{% static 'images/shyren.jpg' %}" alt="photo" width="120" height="150" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>Shyren More</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Username</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>shyrin</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>shreyan@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Contact</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>6969694200</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Aadhar no.</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>12 digit</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>PAN no.</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>12 digit</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Account no.</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>GTD12233333</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>IFSC.</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>8383738383</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
+{% endblock content %} 
