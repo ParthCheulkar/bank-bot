@@ -62,9 +62,9 @@ class Transaction(models.Model):
     receiver = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='receiver')
     amount = models.DecimalField(max_digits=7, decimal_places=4)
     trxn_date = models.DateField(default=timezone.now)
+    trxn_time = models.TimeField(auto_now=True)
     status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)
     remark = models.TextField(blank=True, null=True)
-
 
 
 

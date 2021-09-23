@@ -118,7 +118,7 @@
      
         <div id="sidenav-div">
             <a class="btn" id="sidenav-link" href="{% url 'profile' %}">My Profile</a>
-            <a class="btn" id="sidenav-link" href="#">Account Activity</a>
+            <a class="btn" id="sidenav-link" href="{% url 'profile-transactions' %}">Account Activity</a>
             <a class="btn" id="sidenav-link" href="#">Statement</a>
             <hr/>
             <p id="sidenav-title">Pay and Transfer</p>
@@ -129,7 +129,7 @@
             <p id="sidenav-title">Services</p> 
             <hr/>
             <a class="btn" id="sidenav-link" href="#">Cards</a>
-            <a class="btn" id="sidenav-link" href="#">Loans</a>
+            <a class="btn" id="sidenav-link" href="{% url 'loan' %}">Loans</a>
             <a class="btn" id="sidenav-link" href="#">Policies</a>
             <a class="btn" id="sidenav-link" href="#">Insurance</a>
         </div>

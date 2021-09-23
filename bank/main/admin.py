@@ -13,4 +13,4 @@ class AccountAdmin(admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
-    list_display=['id', 'sender', 'receiver', 'amount', 'trxn_date', 'status']
+    list_display=['id', 'sender', 'receiver', 'amount', 'trxn_date', 'trxn_time','status']

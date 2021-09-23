@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Account activity | {% endblock title %} 
+
+{% block pgcss %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+
+<section class="ftco-section" style="overflow-x: hidden;">
+<div class="table mt-3 container login-wrap offset-md-2 col-md-8">
+    <table class="table table-hover">
+        <thead>
+            <th><h3>Date</h3></th>
+            <th><h3>Amount</h3></th>
+            <th><h3>Activity</h3></th>
+            <th><h3>Account no</h3></th>
+        </thead>
+
+        <tbody>
+
+            {% for transaction in transactions %}            
+            <tr class="mx-auto  {% if transaction.sender == user_account %} bg-danger {% else %} bg-success {% endif %} text-light" style="opacity: 0.8;">
+                <td scope="row"><h5>{{transaction.trxn_date}}</h5></td>
+                <td><h5> ₹ {{transaction.amount}} </h5></td>
+                <td><h5>{{transaction.status}}</h5></td>
+                <td><h5>{{user_account.acc_no}}</h5></td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</div>
+</section>
+{% endblock content %}
+
+{% block pgjs %}
+{% endblock pgjs %}
