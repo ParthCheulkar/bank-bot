@@ -148,7 +148,7 @@ function scrollToBottomOfResults() {
 Frontend Part Completed
 ****************************************************************/
 
-// host = 'http://localhost:5005/webhooks/rest/webhook'
+host = 'http://localhost:5005/webhooks/rest/webhhook/'
 function send(message) {
     chatInput.focus();
     console.log("User Message:", message)
