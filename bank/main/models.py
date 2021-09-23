@@ -1,8 +1,13 @@
+import random
+
 from django.db import models
 from django.contrib.auth.models import User
 
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+
+from django.utils import timezone
+
 
 class CustomerProfile(models.Model):
     prof_for = models.ForeignKey(User,on_delete=models.CASCADE, blank=True, null=True)
@@ -40,7 +45,28 @@ class Account(models.Model):
     def __str__(self):
         return f"{self.acc_no} - {self.acc_for.f_name}"
 
-import random
+
+TRANSACTION_STATUS = [
+    ('successful', 'successful'),
+    ('failed', 'failed')
+]
+
+TRANSACTION_TYPE = [
+    ('IMPS', 'IMPS')
+]
+
+
+class Transaction(models.Model):
+    transaction_type = models.CharField(choices=TRANSACTION_TYPE,max_length=50)
+    sender = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='sender')
+    receiver = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='reciever')
+    amount = models.DecimalField(max_digits=7, decimal_places=4)
+    trxn_date = models.DateField(default=timezone.now)
+    status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)
+    remark = models.TextField(blank=True, null=True)
+
+
+
 
 @receiver(post_save, sender=CustomerProfile)
 def post_save_for_customer_profile(sender, instance, created, **kwargs):
@@ -74,3 +100,6 @@ def post_save_for_customer_profile(sender, instance, created, **kwargs):
 
         instance.prof_for = create_user
         instance.save()
+
+
+
