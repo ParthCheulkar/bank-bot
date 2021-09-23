@@ -183,8 +183,15 @@ function setBotResponse(val) {
             //if there is no response from Rasa
             // msg = 'I couldn\'t get that. Let\' try something else!';
             msg = inactiveMessage;
+            regEx = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
+            var isLink = regEx.test(msg);
 
-            var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${msg} </span></div>`;
+            if (isLink) {
+                var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><a class='msg' href="${msg}" target="_blank"> ${msg} </a></div>`;
+            }
+            else {
+                var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${msg} </span></div>`;
+            }
             $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
             scrollToBottomOfResults();
             chatInput.focus();
