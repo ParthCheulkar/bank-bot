@@ -9,3 +9,6 @@ def account_no(request):
 
 def video(request):
     return render(request, "video.html")
+
+def profile(request):
+    return render(request, "profile.html")
