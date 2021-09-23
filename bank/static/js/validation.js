@@ -67,4 +67,66 @@ $(document).ready(function () {
         }
     });
 
+    $('#amount_transfer_money').keypress(function (event) {
+        var keycode = event.which;
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+            event.preventDefault();
+        }
+
+        if ($('#amount_transfer_money').val().length >= 10) {
+            event.preventDefault();
+        }
+
+    });
+
+    $("#transfer-money-btn").click(function (e) {
+        e.preventDefault();
+        var rname = $("#rname").val();
+        var accountno = $("#accountno").val();
+        var amount = $("#amount_transfer_money").val();
+        var remark = $("#remark").val();
+        var valid = true;
+        $(".error").remove();
+
+        if (accountno.length < 1)
+        {
+            $("#accountno").before(
+                '<span class="error">Account no is required</span>'
+            );
+            valid = false;
+        }
+
+        if (accountno.length > 10) {
+            $("#accountno").before(
+                '<span class="error">Enter valid account no</span>'
+            );
+            valid = false;
+        }
+
+        if (rname.length < 1) {
+            $("#rname").before(
+                '<span class="error">This field is required</span>'
+            );
+            valid = false;
+        }
+
+        if (amount.length < 1) {
+            $("#amount_transfer_money").before(
+                '<span class="error">Please enter amount</span>'
+            );
+            valid = false;
+        }
+        if (remark.length < 1) {
+            $("#remark").before(
+                '<span class="error">Enter reason for transaction</span>'
+            );
+            valid = false;
+        }
+        
+        if (valid == true) {
+            $(".transfer-money-form").submit();
+        }
+    });
+
+
 });

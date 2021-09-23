@@ -20,3 +20,5 @@ def get_user(request):
     return JsonResponse({"username":user.username})
 
 
+def transfermoney(request):
+    return render(request, "transfer_money.html")

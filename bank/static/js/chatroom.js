@@ -148,7 +148,7 @@ function scrollToBottomOfResults() {
 Frontend Part Completed
 ****************************************************************/
 
-// host = 'http://localhost:5005/webhooks/rest/webhook'
+host = 'http://localhost:5005/webhooks/rest/webhhook/'
 function send(message) {
     chatInput.focus();
     console.log("User Message:", message)
@@ -183,8 +183,9 @@ function setBotResponse(val) {
             //if there is no response from Rasa
             // msg = 'I couldn\'t get that. Let\' try something else!';
             msg = inactiveMessage;
-
             var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${msg} </span></div>`;
+
+            
             $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
             scrollToBottomOfResults();
             chatInput.focus();
@@ -194,7 +195,17 @@ function setBotResponse(val) {
             for (i = 0; i < val.length; i++) {
                 //check if there is text message
                 if (val[i].hasOwnProperty("text")) {
-                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
+                    regEx = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
+                    var isLink = regEx.test(val[i].text);
+
+                    if (isLink) {
+                        var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><a class='msg' href="${val[i].text}" target="_blank"> ${val[i].text} </a></div>`;
+                    }
+                    else {
+                        var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${val[i].text} </span></div>`;
+                    }
+
+                    // var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
