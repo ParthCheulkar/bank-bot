@@ -10,4 +10,6 @@ urlpatterns = [
     path('profile/', main.profile, name="profile"),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
 
+    ## Endpts
+    path('getuser/', main.get_user, name="getuser"),
 ]

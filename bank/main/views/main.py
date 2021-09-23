@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse 
+from django.http import HttpResponse
+from django.http import JsonResponse
 
 def index(request):
     return render(request, "base.html")
@@ -12,5 +13,10 @@ def video(request):
 
 def profile(request):
     return render(request, "profile.html")
+
+def get_user(request):
+    user = request.user
+
+    return JsonResponse({"username":user.username})
 
 
