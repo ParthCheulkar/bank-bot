@@ -12,4 +12,6 @@ urlpatterns = [
     path('loan/', main.loan, name="loan"),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
 
+    ## Endpts
+    path('getuser/', main.get_user, name="getuser"),
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse 
+from django.http import HttpResponse
+from django.http import JsonResponse
 
 def index(request):
     return render(request, "base.html")
@@ -16,5 +17,11 @@ def profile(request):
 def loan(request):
     return render(request, "loan.html")
     
+def get_user(request):
+    user = request.user
+
+    return JsonResponse({"username":user.username})
+
+
 def transfermoney(request):
     return render(request, "transfer_money.html")

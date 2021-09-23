@@ -148,17 +148,28 @@ function scrollToBottomOfResults() {
 Frontend Part Completed
 ****************************************************************/
 
+async function getUser() {
+    const response = await fetch("/getuser");
+    var data = await response.json();
+    // console.log(data);
+    return data.username;
+}
+
 host = 'http://localhost:5005/webhooks/rest/webhhook/'
-function send(message) {
+// var user = getUser();
+
+async function send(message) {
     chatInput.focus();
+    var user = await getUser();
     console.log("User Message:", message)
+    // console.log("user is",user);
     $.ajax({
         url: host,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
             "message": message,
-            "sender": "User"
+            "sender": user,
         }),
         success: function(data, textStatus) {
             if (data != null) {
