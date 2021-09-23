@@ -13,5 +13,5 @@ def video(request):
 def profile(request):
     return render(request, "profile.html")
 
-def transfer_money(request):
+def transfermoney(request):
     return render(request, "transfer_money.html")
