@@ -165,5 +165,5 @@ Thumbs.db #thumbnail cache on Windows
 # profiling data
 .prof
 
-
+notes.txt
 # End of https://www.toptal.com/developers/gitignore/api/django
