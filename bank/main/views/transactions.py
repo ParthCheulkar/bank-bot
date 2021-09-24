@@ -16,28 +16,78 @@ def index(request):
 
 def generate_otp(request):
     otp = random.randint(1111,9999) 
-    request.sessions["otp"] = otp 
-    phone = CustomerProfile.objects.get(prof_for = user).phone
+    request.session["otp"] = otp 
+    print(f"genotp->{otp}")
+    phone = CustomerProfile.objects.get(prof_for = request.user).phone
     account_sid = "AC703679e4bfdc618b2c00d92b79be454c"
     # Your Auth Token from twilio.com/console
-    auth_token  = "e32ed7f2cfc5bd964b3d509fa8c10f7b"
+    auth_token  = "39bbacefcaf41a2fec45e9d377ab1f71"
 
     client = Client(account_sid, auth_token)
 
-    message = client.messages.create(
+    message = client.api.account.messages.create(
         to=phone, 
         from_="+15743672651",
         body=f"Your OTP is: {otp}")
+    return otp
+
 
 def verify_otp(request):
-    if request.method == "POST":
-        entered_otp = request.POST["otp"]
-        gen_otp = request.session["otp"]
+    
+    if request.method == 'POST':
+        ist = request.POST['ist']
+        sec = request.POST['sec']
+        third = request.POST['third']
+        fourth = request.POST['fourth']
 
-        if entered_otp == gen_otp:
-            return True
+        digits = ist+sec+third+fourth
+
+        otp = request.session["otp"]
+
+        
+        print(f"otp->{otp}")
+
+        rname = request.session["rname"]
+        accountno = request.session["accountno"]
+        amount = Decimal(request.session["amount"])
+        remark = request.session["remark"]
+        print(f"rname->{rname}")
+        print(f"accountno->{accountno}")
+        print(f"remark->{remark}")
+        print(f"amount->{amount}")
+
+        user = request.user
+        # user = User.objects.get(username="Shyren@473793737284")
+        user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
+        receiver = Account.objects.get(acc_no = accountno)
+        if int(digits) == otp:
+            # try:
+            print(f"moneyy->{user_account.acc_bal}")
+            
+            receiver.acc_bal += amount
+            user_account.acc_bal -= amount
+
+            receiver.save()
+            user_account.save()
+
+            Transaction.objects.create(transaction_type = 'IMPS', sender = user_account, receiver = receiver, amount = amount, status = 'successful', remark=remark)
+            f = open(f"../bank/bankbot/data/{request.user.username}.txt","w+")
+            f.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
+            f.close()
+            f2 = open(f"../bank/bankbot/data/data.txt","w+")
+            f2.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
+            f2.close()
+            messages.success(request, "Transaction success.")
+            return render(request, "transfer_money.html")
+            # except:
+            #     messages.error(request, "Transaction failed.")
+            #     return render(request, "transfer_money.html")
         else:
-            return False
+            messages.error(request, "OTP did not match.")
+            
+            return redirect('verifyotp')
+    else:
+        return render(request, 'otp.html')
 
 
 @csrf_exempt
@@ -74,31 +124,19 @@ def make_transaction(request):
         amount = Decimal(request.POST["amount"])
         remark = request.POST["remark"]
 
+
         receiver = Account.objects.get(acc_no = accountno)
         print(f"reci->{receiver.acc_no}")
         print(f"sender->{user_account.acc_no}")
         if user_account.acc_bal > amount+Decimal(100.0):
-            try:
-                print(f"moneyy->{user_account.acc_bal}")
-                
-                receiver.acc_bal += amount
-                user_account.acc_bal -= amount
+            generate_otp(request)
+            request.session["rname"] = rname
+            request.session["accountno"] = accountno
+            request.session["amount"] = str(amount)
+            request.session["remark"] = remark
+            
+            return redirect("verifyotp")
 
-                receiver.save()
-                user_account.save()
-
-                Transaction.objects.create(transaction_type = 'IMPS', sender = user_account, receiver = receiver, amount = amount, status = 'successful', remark=remark)
-                f = open(f"../bank/bankbot/data/{request.user.username}.txt","w+")
-                f.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
-                f.close()
-                f2 = open(f"../bank/bankbot/data/data.txt","w+")
-                f2.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
-                f2.close()
-                messages.success(request, "Transaction success.")
-                return render(request, "transfer_money.html")
-            except:
-                messages.error(request, "Transaction failed.")
-                return render(request, "transfer_money.html")
         else:
             messages.error(request, "You dont have enough balance.")
             return render(request, "transfer_money.html")
