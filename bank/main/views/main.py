@@ -15,12 +15,7 @@ import os
 from .ml import *
 
 def index(request):
-    print(request.user.username)
-    if request.user.username:
-        abb = ActionBank()
-        abb.checkuser(request.user)
-    else:
-        print("bruh")
+    
     return render(request, "base.html")
 
 def account_no(request):
@@ -98,6 +93,12 @@ def crn_sent(request, accno):
     return render(request, "login.html", {"mssg":"Your CRN is sent."})
 
 def profile(request):
+    print(request.user.username)
+    if request.user.username:
+        abb = ActionBank()
+        abb.checkuser(request.user)
+    else:
+        print("bruh")
     return render(request, "profile.html")
 
 def loan(request):
