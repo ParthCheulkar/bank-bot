@@ -3,7 +3,8 @@ body {
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
   background-color: #fffeff;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 /* Side Nav  */
 #sidenav-div{
@@ -13,7 +14,8 @@ body {
   left: 0;
   top: 0;
   position: fixed;
-  overflow-y:scroll;
+  scroll-behavior: unset;
+  overflow-x: hidden;
   height: 100vh;
   width: 250px;
   border: 1px solid #561273;

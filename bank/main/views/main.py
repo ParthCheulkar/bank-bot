@@ -25,3 +25,6 @@ def get_user(request):
 
 def transfermoney(request):
     return render(request, "transfer_money.html")
+
+def insurance(request):
+    return render(request, "insurance.html")

@@ -10,8 +10,10 @@ urlpatterns = [
     path('login/video', main.video, name="video"),
     path('profile/', main.profile, name="profile"),
     path('loan/', main.loan, name="loan"),
+    path('insurance/', main.insurance, name="insurance"),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
     path('autosuggest/', transactions.autosuggest, name="autosuggest"),
     ## Endpts
     path('getuser/', main.get_user, name="getuser"),
+   
 ]
