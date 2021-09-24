@@ -101,11 +101,10 @@ nlu:
 
 - intent: bank_account
   examples: |
-    - what is my account balance
-    - what is my account number
-    - what is my isfc code
+    - what is my account [number](account)
+    - what is my [ifsc](account) code
     - how can i view my account
-    - i want to check my bank statements
+    - i want to check my bank [statements](account)
     - how can i check my bank statements
 
 

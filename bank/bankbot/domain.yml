@@ -43,11 +43,18 @@ intents:
     use_entities: true
 - insurance:
     use_entities: true
-entities: []
+
+actions:
+  - action_bank_balance
+
+entities: 
+  - account
+  
 slots: {}
 responses:
   utter_greet:
   - text: Hey! How are you?
+    
   utter_gibb:
   - text: Sorry could you rephrase it?
   utter_did_that_help:
@@ -100,9 +107,9 @@ responses:
   - text: "https://www.google.co.in/"
   utter_help:
   - text: How can i help you today?
+    
 
 
 
-actions: []
 forms: {}
 e2e_actions: []

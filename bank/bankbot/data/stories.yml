@@ -25,7 +25,7 @@ stories:
   - intent: register
   - action: utter_reg
   - intent: bank_account
-  - action: utter_account
+  - action: action_bank_balance
   - action: utter_acclink
   - action: utter_did_that_help
   - intent: affirm

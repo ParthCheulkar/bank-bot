@@ -94,7 +94,7 @@ def post_save_for_customer_profile(sender, instance, created, **kwargs):
         ## Create an account object after cust profile
         create_account, account_created = Account.objects.get_or_create(
             acc_no = random.randint(1111111111, 9999999999),
-            acc_bal = 100.0000,
+            acc_bal = 1000.0000,
             acc_for = instance,
             acc_type = 'SAV'
         )
