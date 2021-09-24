@@ -106,9 +106,11 @@ def profile(request):
     cust_profile = CustomerProfile.objects.get(prof_for=request.user)
     account = Account.objects.get(acc_for = cust_profile)
     # print(cust_profile)
+    user_assets = ImageUpload.objects.get(user = cust_profile)
     context = {
         'cust_profile': cust_profile,
-        'account': account
+        'account': account,
+        'user_assets': user_assets
     }
     return render(request, "profile.html", context)
 
