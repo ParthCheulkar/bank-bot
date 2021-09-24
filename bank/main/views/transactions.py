@@ -5,6 +5,7 @@ from ..models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from decimal import Decimal
+from django.core import serializers
 
 import random
 from twilio.rest import Client
@@ -52,6 +53,15 @@ def get_transactions(request):
     #         print(f"green {transaction.amount}")
     
     return render(request, 'account_activity.html', {"transactions":transactions, "user_account":user_account})
+
+@csrf_exempt
+def get_transactions_json(request):
+    user = request.user
+    user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
+    transactions = Transaction.objects.filter(Q(sender=user_account) | Q(receiver=user_account))
+    transactions_json = serializers.serialize("json", transactions)
+    print(transactions_json)
+    return JsonResponse(transactions_json, safe=False)
 
 def make_transaction(request):
     user = request.user
