@@ -98,15 +98,15 @@ responses:
   utter_reg:
   - text: Go to any banks near your home to register
   utter_acclink:
-  - text: "https://www.google.co.in/"
+  - text: "http://127.0.0.1:8000/profile/"
   utter_cdlink:
-  - text: "https://www.google.co.in/"
+  - text: "http://127.0.0.1:8000/cards/"
   utter_dblink:
-  - text: "https://www.google.co.in/"
+  - text: "http://127.0.0.1:8000/cards/"
   utter_loanlink:
-  - text: "https://www.google.co.in/"
+  - text: "http://127.0.0.1:8000/loan/"
   utter_insurancelink:
-  - text: "https://www.google.co.in/"
+  - text: "http://127.0.0.1:8000/insurance/"
   utter_help:
   - text: How can i help you today?
   utter_lunch:
