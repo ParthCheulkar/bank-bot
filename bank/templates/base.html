@@ -132,7 +132,11 @@
             <a class="btn" id="sidenav-link" href="{% url 'loan' %}">Loans</a>
             <a class="btn" id="sidenav-link" href="#">Policies</a>
             <a class="btn" id="sidenav-link" href="#">Insurance</a>
-            <a class="btn" id="sidenav-link" href="#">Logout</a>
+            {% if user.is_authenticated %}
+              <a class="btn" id="sidenav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="btn" id="sidenav-link" href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
       </div>
       <div>
