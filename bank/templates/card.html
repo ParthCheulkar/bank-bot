@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block content %} {% block title %} Card Request | {% endblock title %} {% block pgcss %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="{% static 'css/card.css' %}" />
+
+{% endblock pgcss %} {% block pagetitle %}Request A Card{% endblock pagetitle %}
+
+<div id="main">
+  <div class="card-div">
+    <div id="card-outer-box">
+      <div id="card">
+        <h3 class="bank">GTD</h3>
+        <!-- <img src="{% static 'images/apple-touch-icon.png' %}" alt="logo" class="logo" /> -->
+        <img src="{% static 'images/chip.png' %}" alt="chip" class="chip" />
+        <img
+          src="{% static 'images/indicator.png' %}"
+          alt="indicator"
+          class="indicator"
+        />
+        <h3 class="number">4100 1234 5678 9010</h3>
+        <h5 class="card-holder" ><span>card holder</span><br /> <span id="card-owner" >random joe</span></h5>
+        <h5 class="valid"><span>valid thru</span><br />20/30</h5>
+        <img
+          src="{% static 'images/visa.png' %}"
+          alt="visa-logo"
+          class="visa"
+        />
+      </div>
+      <p id="caption">This is an illustrative example</p>
+    </div>
+  </div>
+
+  <form
+    method="POST"
+    enctype="multipart/form-data"
+    role="form"
+    id="card-request-form"
+  >
+  {% csrf_token %}
+    <div id="input-box">
+      <span>Enter the name you want on your card : </span>
+      <input
+        type="text"
+        required
+        aria-required="true"
+        placeholder=""
+        id="input-name"
+      />
+        <span id="r">Select type of card :</span>
+        <select
+          class="form-select"
+          id= "form-control"
+          aria-label="Example select with button addon"
+        >
+          <option selected value="1">Debit</option>
+          <option value="2">Credit</option>
+          <option value="3">Forex</option>
+        </select>
+    </div>
+    <div id = "button-div">
+    <button type="submit" id="submit-btn">Send Request</button>
+    </div>
+  </form>
+</div>
+
+{% block pgjs %}
+<script src="{% static 'js/card.js' %}"></script>
+{% endblock pgjs %} {% endblock content %}

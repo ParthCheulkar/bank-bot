@@ -10,13 +10,28 @@
 {% block content %}
 
 <section class="ftco-section" style="overflow-x: hidden;">
-<div class="row ui-widget col-md-5 offset-md-2">
-    <input id="tags">
-</div>
+<div class="container d-flex align-items-center">
+    
 
-<button type="button" class="offset-md-2" onclick="printJS({printable: someJSONdata, properties: ['transaction_type', 'amount', 'trxn_date', 'trxn_time', 'status', 'remark'], type: 'json'})">
-    Print bank statement
-</button>
+    <div class="offset-md-2">
+        &nbsp;
+    </div>
+    <form action="{% url 'profile-transactions-search' %}" method="get">
+        <div class="row offset-md-1">
+            <div class="row ui-widget col-md-10">
+                <input id="tags" style="width: 100%;" name="term" autocomplete="off" placeholder="Account no">
+            </div>
+        
+            <button class="btn btn-primary col-md-3" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </form>
+    <button type="button" class="offset-md-2 col-md-3 btn btn-primary rounded submit mt-4" onclick="printJS({printable: someJSONdata, properties: ['transaction_type', 'amount', 'trxn_date', 'trxn_time', 'status', 'remark'], type: 'json'})">
+        Print bank statement
+    </button>
+
+</div>
 
 <div class="table mt-3 container login-wrap offset-md-2 col-md-8">
     <table class="table table-hover" id="pdf">
@@ -31,11 +46,11 @@
         <tbody>
 
             {% for transaction in transactions %}            
-            <tr class="mx-auto  {% if transaction.sender == user_account %} bg-danger {% else %} bg-success {% endif %} text-light" style="opacity: 0.8;">
+            <tr class="mx-auto  {% if transaction.sender == user_account %} bg-danger {% elif transaction.sender != user_account %} bg-success {% endif %} text-light" style="opacity: 0.8;">
                 <td scope="row"><h5>{{transaction.trxn_date}}</h5></td>
                 <td><h5> ₹ {{transaction.amount}} </h5></td>
                 <td><h5>{{transaction.status}}</h5></td>
-            <td><h5>{% if transaction.sender.acc_no != user_account.acc_no %} {{ transaction.sender.acc_no }} {% else %} {{ transaction.receiver.acc_no }}  {% endif %}</h5></td>
+                <td><h5>{% if transaction.sender.acc_no != user_account.acc_no %} {{ transaction.sender.acc_no }} {% else %} {{ transaction.receiver.acc_no }}  {% endif %}</h5></td>
                 <td><h5>{{transaction.trxn_time}}</h5></td>
             </tr>
             {% endfor %}

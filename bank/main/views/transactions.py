@@ -60,7 +60,7 @@ def get_transactions_json(request):
     user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
     transactions = Transaction.objects.filter(Q(sender=user_account) | Q(receiver=user_account))
     transactions_json = serializers.serialize("json", transactions)
-    print(transactions_json)
+    # print(transactions_json)
     return JsonResponse(transactions_json, safe=False)
 
 def make_transaction(request):
@@ -110,11 +110,34 @@ def autosuggest(request):
     # <QueryDict: {'term': ['gh']}>
     query_original = request.GET.get('term')
     # queryset = Products.objects.filter(title__icontains=query_original)
-    queryset = Transaction.objects.filter(sender__acc_no__contains = query_original)
+    queryset = Transaction.objects.filter(Q(sender__acc_no__startswith = query_original) | Q(receiver__acc_no__startswith = query_original))
     # returning json resp
     # putting title of queryset in list
     mylist = []
 
     # x = prodcutObj.title
     mylist += [x.sender.acc_no for x in queryset]
+    mylist.sort()
     return JsonResponse(mylist, safe=False)
+
+def get_transactions_search(request):
+    query_original = request.GET.get('term')
+    account = Account.objects.get(acc_no=query_original)
+
+    user = request.user
+    user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
+    transactions = Transaction.objects.filter(Q(sender=user_account) | Q(receiver=user_account))
+    transactions = transactions.filter((Q(sender=user_account) & Q(receiver=account)) | (Q(sender=account) & Q(receiver=user_account)))
+    # transactions = transactions.filter(Q(sender=account) | Q(receiver=account))
+    # print(transactions)
+    # queryset = Transaction.objects.get(sender__acc_no = query_original)
+
+    # transactions = []
+
+    # x = prodcutObj.title
+    # transactions += [x.sender.acc_no for x in queryset]
+    
+    return render(request, 'account_activity.html', {"transactions": transactions, "user_account": user_account})
+    
+def verifyotp(request):
+    return render(request, "otp.html")
