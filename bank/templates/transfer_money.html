@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Transfer Money | {% endblock title %} 
+
+{% block pgcss %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">        
+{% endblock pgcss %}
+
+{% block content %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="login-wrap p-4 p-md-5">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fas fa-comments-dollar" style="color: #fff;"></i>
+            </div>
+
+            <h3 class="text-center mb-4">Transfer money</h3>
+            <form action="" method="POST" class="transfer-money-form" id="transfer-money-form">
+                {% csrf_token %}
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control rounded-left" placeholder="Receiver's name" id="rname" name="rname">
+                </div>
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control rounded-left" placeholder="Account no" id="accountno" name="accountno">
+                </div>
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control rounded-left" placeholder="Amount in ₹" id="amount_transfer_money" name="amount">
+                </div>
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control rounded-left" placeholder="Remark" id="remark" name="remark">
+                </div>
+                
+                <!--
+
+                <div class="form-group d-flex mt-4 justify-content-between">
+                    <div class="col-md-6">
+                        <input type="radio" id="pay" name="transfer_money" value="PAY" required>
+                        <label for="pay">PAY</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="request" name="transfer_money" value="REQUEST">
+                        <label for="request">REQUEST</label><br>
+                    </div>
+                </div>
+                -->
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary rounded submit p-3 px-5" id="transfer-money-btn">Transfer</button>
+                </div>
+            </form>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block pgjs %}
+<script src="{% static 'js/validation.js' %}"></script>
+{% endblock pgjs %}

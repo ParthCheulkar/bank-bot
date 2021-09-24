@@ -39,7 +39,7 @@ ACCOUNT_TYPES = [
 class Account(models.Model):
     acc_for = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
     acc_no = models.CharField(max_length=10)
-    acc_bal = models.DecimalField(max_digits=7, decimal_places=4)
+    acc_bal = models.DecimalField(max_digits=12, decimal_places=4)
     acc_type = models.CharField(choices=ACCOUNT_TYPES, max_length=50)
 
     def __str__(self):
@@ -62,9 +62,9 @@ class Transaction(models.Model):
     receiver = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='receiver')
     amount = models.DecimalField(max_digits=7, decimal_places=4)
     trxn_date = models.DateField(default=timezone.now)
+    trxn_time = models.TimeField(auto_now=True)
     status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)
     remark = models.TextField(blank=True, null=True)
-
 
 
 
@@ -95,7 +95,8 @@ def post_save_for_customer_profile(sender, instance, created, **kwargs):
         create_account, account_created = Account.objects.get_or_create(
             acc_no = random.randint(1111111111, 9999999999),
             acc_bal = 100.0000,
-            acc_for = instance
+            acc_for = instance,
+            acc_type = 'SAV'
         )
 
         instance.prof_for = create_user

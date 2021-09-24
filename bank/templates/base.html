@@ -54,12 +54,12 @@
 
     {% block pgcss %} {% endblock pgcss %}
 
-    <title>GTD Bank | {% block title %} {% endblock title %}</title>
+    <title> {% block title %} {% endblock title %} GTD Bank</title>
   </head>
 
   <body>
     <div>
-      <div>
+      {% comment %} <div>
         <!--Navbar-->
         <nav
           class="navbar navbar-expand-lg navbar-light bg-light"
@@ -85,11 +85,11 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="XYZ">
-            <div class="navbar-nav ml-auto">
+            <div class="navbar-nav ml-auto"> {% endcomment %}
               <!-- {% if user.is_authenticated %} {% comment %} -->
               <!-- <a href="/"><h5 class="pt-2">Hello, {{ user.first_name }}</h5></a> -->
               <!-- {% endcomment %} -->
-              <div id="box">
+              {% comment %} <div id="box">
                 <a
                   class="nav-item nav-link"
                   role="button"
@@ -108,34 +108,41 @@
                   >My Profile</a
                 >
               </div>
-              </div>
+              </div> {% endcomment %}
 
               <!-- {% endif %} -->
-            </div>
+            {% comment %} </div>
           </div>
         </nav>
-      </div>
-      <div>
+      </div> {% endcomment %}
+     
         <div id="sidenav-div">
-            <a class="btn" id="sidenav-link" href="#">My Profile</a>
-            <a class="btn" id="sidenav-link" href="#">Account Activity</a>
+            <a class="btn" id="sidenav-link" href="{% url 'profile' %}">My Profile</a>
+            <a class="btn" id="sidenav-link" href="{% url 'profile-transactions' %}">Account Activity</a>
             <a class="btn" id="sidenav-link" href="#">Statement</a>
             <hr/>
             <p id="sidenav-title">Pay and Transfer</p>
             <hr/>
-            <a class="btn" id="sidenav-link" href="#">Transfer Money</a>
-            <a class="btn" id="sidenav-link" href="#">UPI</a>
+            <a class="btn" id="sidenav-link" href="{% url 'transfermoney' %}">Transfer Money</a>
+            <!-- <a class="btn" id="sidenav-link" href="#">UPI</a> -->
             <hr/>
             <p id="sidenav-title">Services</p> 
             <hr/>
             <a class="btn" id="sidenav-link" href="#">Cards</a>
-            <a class="btn" id="sidenav-link" href="#">Loans</a>
+            <a class="btn" id="sidenav-link" href="{% url 'loan' %}">Loans</a>
             <a class="btn" id="sidenav-link" href="#">Policies</a>
             <a class="btn" id="sidenav-link" href="#">Insurance</a>
+            {% if user.is_authenticated %}
+              <a class="btn" id="sidenav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="btn" id="sidenav-link" href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
       </div>
+      <div>
+        <h1>{% block pagetitle %}{% endblock pagetitle %}</h1>
+      </div>
       
-    </div>
     {% block content %} {% endblock content %}
     {% comment %} <div>
         <footer id="footer">
@@ -165,7 +172,9 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     {% block pgjs %} {% endblock pgjs %}
   </body>
 </html>
