@@ -66,6 +66,42 @@ class Transaction(models.Model):
     status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)
     remark = models.TextField(blank=True, null=True)
 
+class ImageUpload(models.Model):
+    file = models.FileField(upload_to = 'images/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.prof_for.username + " Image doc."
+
+class VideoUpload(models.Model):
+    file = models.FileField(upload_to = 'videos/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.prof_for.username + " Video doc."
+
+class IdUpload(models.Model):
+    file = models.FileField(upload_to = 'ids/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.prof_for.username + " ID doc."
+
+CARD_TYPE = [
+    ('DEB', 'DEBIT'),
+    ('CRE', 'CREDIT'),
+    ('FRX', 'FOREX'),
+]
+
+class CardRequest(models.Model):
+    card_for = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+    card_type = models.CharField(choices = CARD_TYPE, max_length=50)
+    holder_name = models.CharField(max_length=150)
+    verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Card For {self.holder_name}"
+    
 
 
 @receiver(post_save, sender=CustomerProfile)

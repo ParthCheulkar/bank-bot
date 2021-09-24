@@ -14,3 +14,7 @@ class AccountAdmin(admin.ModelAdmin):
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
     list_display=['id', 'sender', 'receiver', 'amount', 'trxn_date', 'trxn_time','status']
+
+admin.site.register(ImageUpload)
+admin.site.register(VideoUpload)
+admin.site.register(IdUpload)

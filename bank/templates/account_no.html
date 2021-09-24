@@ -52,14 +52,18 @@
                         <i class="fas fa-user" style="color: #fff;"></i>
                     </div>
 
-                    <form action="#" class="account_no-form" id="account_no-form">
+                    <form action="" class="account_no-form" method="POST" id="account_no-form">
+                        {% csrf_token %}
                         <div class="form-group mt-4">
-                            <input type="text" class="form-control rounded-left" placeholder="Account No" id="accountno">
+                            <input type="text" class="form-control rounded-left" placeholder="Account No" id="accountno" name="accno">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary rounded submit p-3 px-5" id="account-no-btn">Next step</button>
                         </div>
                     </form>
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
                 </div>
                     </div>
                 </div>
@@ -71,6 +75,17 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{% static 'js/validation.js' %}"></script>
+        <!--
+
+        <script>
+        function setcookie(){
+            var txtOne = document.getElementById('accountno').value;
+            document.cookie = `accno=${txtOne}`;
+            localStorage.setItem("accno", txtOne);
+            window.location = `/video/${txtOne}`;
+        }
+        </script>
+        -->
 
     </body>
 </html>
