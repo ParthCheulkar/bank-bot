@@ -104,4 +104,7 @@ def get_transactions_search(request):
     # x = prodcutObj.title
     # transactions += [x.sender.acc_no for x in queryset]
     
-    return render(request, 'account_activity.html', {"transactions": transactions, "user_account":user_account})
+    return render(request, 'account_activity.html', {"transactions": transactions, "user_account": user_account})
+    
+def verifyotp(request):
+    return render(request, "otp.html")

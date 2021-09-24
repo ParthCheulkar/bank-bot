@@ -1,0 +1,99 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %} OTP | {% endblock title %} 
+
+{% block pgcss %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">  
+<style>
+  .userInput {
+    display: flex;
+    justify-content: center;
+  }
+
+  input {
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: arimo;
+    color: honeydew;
+  }
+</style>      
+{% endblock pgcss %}
+
+{% block content %}
+
+<section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Enter OTP</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-wrap p-4 p-md-5">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fas fa-user-check" style="color: #fff;"></i>
+                    </div>
+
+                    <form action="" method="POST" class="login-form" id="login-form">
+                        {% csrf_token %}
+                        <div class="userInput">
+                            <input
+                            type="text"
+                            id="ist"
+                            name="ist"
+                            maxlength="1"
+                            onkeyup="clickEvent(this,'sec')"
+                            />
+                            <input
+                            type="text"
+                            id="sec"
+                            name="sec"
+                            maxlength="1"
+                            onkeyup="clickEvent(this,'third')"
+                            />
+                            <input
+                            type="text"
+                            id="third"
+                            name="third"
+                            maxlength="1"
+                            onkeyup="clickEvent(this,'fourth')"
+                            />
+                            <input type="text" id="fourth" name="fourth" maxlength="1" />
+                        </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center ml-3">
+                            <button type="submit" class="btn btn-primary rounded submit p-3 px-5 mt-3" id="verify-btn">Verify OTP</button>
+                        </div>
+                        
+                    </form>
+                </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+{% endblock content %}
+
+{% block pgjs %}
+<script>
+function clickEvent(first, last) {
+    if (first.value.length) {
+        document.getElementById(last).focus();
+    }
+}
+</script>
+<script src="{% static 'js/validation.js' %}"></script>
+{% endblock pgjs %}

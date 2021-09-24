@@ -18,5 +18,6 @@ urlpatterns = [
     path('autosuggest/', transactions.autosuggest, name="autosuggest"),
     ## Endpts
     path('getuser/', main.get_user, name="getuser"),
+    path('verifyotp/', transactions.verifyotp, name="verifyotp"),
    
 ]
