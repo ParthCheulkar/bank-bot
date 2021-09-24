@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% block content %} 
+{% block title %} Welcome | {% endblock title %} {% block pgcss %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock pgcss %}
+
+<div class="main">
+    <img src="{% static 'images/savings.png'  %}" id="image"/>
+    <h6>Welcome to GTD</h6>
+    <p> Click on any menu button on the sidenav or try our Bank Bot in the bottom right corner!</p>
+</div>
+
+{% endblock content %}

@@ -35,3 +35,6 @@ def insurance(request):
     
 def cardRequest(request):
     return render(request, "card.html")
+
+def landing(request):
+    return render(request, "index.html")

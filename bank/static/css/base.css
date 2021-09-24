@@ -1,4 +1,5 @@
 /* just a css file */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 body {
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
@@ -65,4 +66,18 @@ hr{
 .error{
     color: #ff0000;
     font-size: 12px;
+}
+
+#pgtitle{
+  margin-left: 280px;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+#pagetitle{
+  text-align: left;
+  font-size: 2.5rem;
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 800 !important;
+  color: #8d448b;
+
 }
