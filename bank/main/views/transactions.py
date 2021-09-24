@@ -1,11 +1,10 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.http import HttpResponse 
+from django.http import HttpResponse, JsonResponse
 from ..models import * 
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from decimal import Decimal
-
 
 def index(request):
     return HttpResponse("hey")
@@ -62,3 +61,17 @@ def make_transaction(request):
             return render(request, "transfer_money.html")
     else:
         return render(request, "transfer_money.html")
+
+def autosuggest(request):
+    # print(request.GET)
+    # <QueryDict: {'term': ['gh']}>
+    query_original = request.GET.get('term')
+    # queryset = Products.objects.filter(title__icontains=query_original)
+    queryset = Transaction.objects.filter(sender__acc_no__contains = query_original)
+    # returning json resp
+    # putting title of queryset in list
+    mylist = []
+
+    # x = prodcutObj.title
+    mylist += [x.sender.acc_no for x in queryset]
+    return JsonResponse(mylist, safe=False)

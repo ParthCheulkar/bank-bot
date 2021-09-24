@@ -11,7 +11,7 @@ urlpatterns = [
     path('profile/', main.profile, name="profile"),
     path('loan/', main.loan, name="loan"),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
-
+    path('autosuggest/', transactions.autosuggest, name="autosuggest"),
     ## Endpts
     path('getuser/', main.get_user, name="getuser"),
 ]
