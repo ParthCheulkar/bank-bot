@@ -66,7 +66,26 @@ class Transaction(models.Model):
     status = models.CharField(choices=TRANSACTION_STATUS,max_length=50)
     remark = models.TextField(blank=True, null=True)
 
+class ImageUpload(models.Model):
+    file = models.FileField(upload_to = 'images/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.prof_for.username + " Image doc."
+
+class VideoUpload(models.Model):
+    file = models.FileField(upload_to = 'videos/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.prof_for.username + " Video doc."
+
+class IdUpload(models.Model):
+    file = models.FileField(upload_to = 'ids/')
+    user = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.prof_for.username + " ID doc."
 
 @receiver(post_save, sender=CustomerProfile)
 def post_save_for_customer_profile(sender, instance, created, **kwargs):
