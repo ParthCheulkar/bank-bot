@@ -5,6 +5,12 @@ body {
   background-color: #fffeff;
   /* overflow-x: hidden; */
 }
+
+::-webkit-scrollbar{
+  background: #e8f2ff;
+  width: 0px;
+}
+
 /* Side Nav  */
 #sidenav-div{
   margin: 0;
