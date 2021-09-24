@@ -58,9 +58,7 @@
                         <i class="fas fa-user" style="color: #fff;"></i>
                     </div>
 
-                    <a href="account_no" style="text-decoration: none;">
-                        <h3 class="text-center mb-4">Don't have CRN?</h3>
-                    </a>
+                    
                     <form action="" method="POST" class="login-form" id="login-form">
                         {% csrf_token %}
                         <div class="form-group mt-4">
@@ -74,6 +72,9 @@
                         <div class="form-group mt-4 d-flex justify-content-center">
                             <div class="g-recaptcha" data-sitekey="6LflYjAcAAAAAJqCugIBqNI2kOJib5DBdlHKvqeE"></div>
                         </div>
+                        <a href="account_no" style="text-decoration: none;">
+                            <h3 class="text-center mb-4 mt-4">Don't have CRN?</h3>
+                        </a>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary rounded submit p-3 px-5" id="login-btn">Submit</button>
                         </div>
