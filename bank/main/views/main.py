@@ -5,7 +5,6 @@ from bankbot.actions.actions import ActionBank
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
-<<<<<<< HEAD
 from ..models import * 
 from twilio.rest import Client
 from django.contrib import messages
@@ -15,10 +14,8 @@ import os
 
 from .ml import *
 
-=======
 from django.contrib.auth.decorators import login_required
-from ..models import *
->>>>>>> de40dcccb2375dbdae712a3df03c05159498eff8
+
 def index(request):
     
     return render(request, "base.html")
