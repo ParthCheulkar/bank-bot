@@ -3,6 +3,7 @@ from .views import authentication, main, chatroom, transactions
 
 urlpatterns = [
     path('', main.index, name="base"),
+    path('home/', main.landing, name="home"),
     path('login/', authentication.login, name="login"),
     path('logout/', authentication.logout, name="logout"),
     path('chatroom/', chatroom.chatroom, name="chatroom"),

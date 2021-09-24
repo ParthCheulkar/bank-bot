@@ -41,6 +41,9 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" />
@@ -49,6 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@300;400;500;900&display=swap"
       rel="stylesheet"
     />
+
 
     <link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
 
@@ -83,8 +87,8 @@
             {% endif %}
         </div>
       </div>
-      <div>
-        <h1>{% block pagetitle %}{% endblock pagetitle %}</h1>
+      <div id="pgtitle">
+        <h1 id="pagetitle">{% block pagetitle %}{% endblock pagetitle %}</h1>
       </div>
       
     {% block content %} {% endblock content %}

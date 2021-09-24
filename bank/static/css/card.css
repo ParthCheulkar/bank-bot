@@ -17,7 +17,7 @@
 .card-div {
   height: 60vh;
   width: 50vw;
-  border: 1px solid white;
+  border: none;
   border-radius: 30px;
   box-shadow: 0 0 15px grey;
   position: relative;
