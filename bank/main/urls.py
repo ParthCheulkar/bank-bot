@@ -12,6 +12,7 @@ urlpatterns = [
     path('profile/', main.profile, name="profile"),
     path('loan/', main.loan, name="loan"),
     path('insurance/', main.insurance, name="insurance"),
+    path('request-a-card/', main.cardRequest, name='request-a-card'),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
     path('autosuggest/', transactions.autosuggest, name="autosuggest"),
     ## Endpts
