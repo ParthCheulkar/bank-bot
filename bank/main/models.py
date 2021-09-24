@@ -87,6 +87,23 @@ class IdUpload(models.Model):
     def __str__(self):
         return self.user.prof_for.username + " ID doc."
 
+CARD_TYPE = [
+    ('DEB', 'DEBIT'),
+    ('CRE', 'CREDIT'),
+    ('FRX', 'FOREX'),
+]
+
+class CardRequest(models.Model):
+    card_for = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
+    card_type = models.CharField(choices = CARD_TYPE, max_length=50)
+    holder_name = models.CharField(max_length=150)
+    verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Card For {self.holder_name}"
+    
+
+
 @receiver(post_save, sender=CustomerProfile)
 def post_save_for_customer_profile(sender, instance, created, **kwargs):
     if created:
