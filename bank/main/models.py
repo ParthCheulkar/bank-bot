@@ -102,5 +102,10 @@ def post_save_for_customer_profile(sender, instance, created, **kwargs):
         instance.prof_for = create_user
         instance.save()
 
+        if create_account:
+            f= open(f"../bank/bankbot/data/{username}.txt","w+")
+            f.write(f"{create_account.acc_no}\n{instance.cust_crn_no}\n{create_account.acc_bal}")
+            f.close()
+
 
 
