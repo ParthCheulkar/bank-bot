@@ -1,0 +1,81 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+
+- story: affirm
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- story: deny
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- story: account details
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: register
+  - action: utter_reg
+  - intent: bank
+  - action: action_bank
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_affirm
+  - intent: deny
+  - action: utter_deny
+
+- story: cd 
+  steps:
+  - intent: credit_card
+  - action: utter_creditcard
+  - action: utter_cdlink
+  - intent: debit_card
+  - action: utter_debitcard
+  - action: utter_dblink
+  - action: utter_did_that_help
+  - intent: atm
+  - action : utter_atm
+
+- story: loans
+  steps:
+  - intent: loans
+  - action: utter_loans
+  - action: utter_loanlink
+  - intent: insurance
+  - action: utter_insurance
+  - action: utter_insurancelink
+
+- story: fees
+  steps:
+  - intent: fees
+  - action: utter_fees
+  - intent: interest
+  - action: utter_interest
+
+- story: fd rd
+  steps:
+  - intent: fd_rd
+  - action: utter_fdrd
+  - intent: minimum_balance
+  - action: utter_minimumbalance
+
+- story: gibberish
+  steps:
+  - intent: gibb
+  - action: utter_gibb
+
+- story: lunch
+  steps:
+    - intent: lunch
+    - action: utter_lunch
+
+
+

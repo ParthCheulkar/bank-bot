@@ -210,7 +210,7 @@ function setBotResponse(val) {
                     var isLink = regEx.test(val[i].text);
 
                     if (isLink) {
-                        var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><a class='msg' href="${val[i].text}" target="_blank"> ${val[i].text} </a></div>`;
+                        var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><a class='msg' href="${val[i].text}" target="_blank"> click here </a></div>`;
                     }
                     else {
                         var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${val[i].text} </span></div>`;

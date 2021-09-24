@@ -144,7 +144,8 @@ downloadButton.addEventListener("click", (e) => {
             if (data.mssg === "fail") {
                 alert("Please ensure video lighiting and surrounding is better.");
             } else {
-                window.location = "/profile/";
+                console.log("redUrl");
+                window.location = data.redUrl;
             }
         });
 
