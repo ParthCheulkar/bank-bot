@@ -43,6 +43,8 @@ intents:
     use_entities: true
 - insurance:
     use_entities: true
+- lunch:
+    use_entities: true
 
 actions:
   - action_bank
@@ -107,6 +109,8 @@ responses:
   - text: "https://www.google.co.in/"
   utter_help:
   - text: How can i help you today?
+  utter_lunch:
+  - text: Lunch ke baad aana
     
 
 

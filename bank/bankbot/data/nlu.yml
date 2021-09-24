@@ -136,3 +136,9 @@ nlu:
     - how to apply for car insurance
     - how to apply for insurance
     - how can i apply for insurance
+
+- intent: lunch
+  examples: |
+    - passbook kaise update hoga
+    - passbook kidhar update karna hai?
+    - passbook kahan pe update hoga
