@@ -12,6 +12,7 @@ urlpatterns = [
     path('profile/', main.profile, name="profile"),
     path('loan/', main.loan, name="loan"),
     path('insurance/', main.insurance, name="insurance"),
+    path('request-a-card/', main.cardRequest, name='request-a-card'),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
     path('profile/transactions/search/', transactions.get_transactions_search, name="profile-transactions-search"),
     path('profile/transactions-json/', transactions.get_transactions_json, name="profile-transactions-json"),

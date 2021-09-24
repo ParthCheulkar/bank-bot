@@ -41,3 +41,6 @@ def transfermoney(request):
 
 def insurance(request):
     return render(request, "insurance.html")
+    
+def cardRequest(request):
+    return render(request, "card.html")
