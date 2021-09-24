@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h5>Shyren More</h5>
-                    <h6> Bank Profile </h6>
+                    <h5>{{cust_profile.f_name}} {{cust_profile.l_name}}</h5>
+                    <h6> GTD Bank Profile </h6>
                     <p class="proile-info">If you want to update your profile, kindly contact the bank</p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -35,7 +35,7 @@
                                 <label>Name</label>
                             </div>
                             <div class="col-md-5">
-                                <p>Shyren More</p>
+                                <p>{{cust_profile.f_name}} {{cust_profile.l_name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -43,7 +43,7 @@
                                 <label>Username</label>
                             </div>
                             <div class="col-md-5">
-                                <p>shyrin</p>
+                                <p>{{cust_profile}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -51,7 +51,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-5">
-                                <p>shreyan@gmail.com</p>
+                                <p>{{cust_profile.email}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -59,15 +59,16 @@
                                 <label>Contact</label>
                             </div>
                             <div class="col-md-5">
-                                <p>6969694200</p>
+                                <p>{{cust_profile.phone}}</p>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-7">
                                 <label>Aadhar no.</label>
                             </div>
                             <div class="col-md-5">
-                                <p>12 digit</p>
+                                <p> {% if cust_profile.aadhar_no %} {{cust_profile.aadhar_no}} {% else %} NA {% endif %}  </p>
                             </div>
                         </div>
                         <div class="row">
@@ -75,7 +76,7 @@
                                 <label>PAN no.</label>
                             </div>
                             <div class="col-md-5">
-                                <p>12 digit</p>
+                                <p>{{cust_profile.pan_no}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -83,7 +84,15 @@
                                 <label>Account no.</label>
                             </div>
                             <div class="col-md-5">
-                                <p>GTD12233333</p>
+                                <p>{{account.acc_no}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Account Balance.</label>
+                            </div>
+                            <div class="col-md-5">
+                                <p>{{account.acc_bal}}</p>
                             </div>
                         </div>
                         <div class="row">

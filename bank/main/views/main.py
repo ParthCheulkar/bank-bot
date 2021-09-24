@@ -5,6 +5,7 @@ from bankbot.actions.actions import ActionBank
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
+<<<<<<< HEAD
 from ..models import * 
 from twilio.rest import Client
 from django.contrib import messages
@@ -14,6 +15,10 @@ import os
 
 from .ml import *
 
+=======
+from django.contrib.auth.decorators import login_required
+from ..models import *
+>>>>>>> de40dcccb2375dbdae712a3df03c05159498eff8
 def index(request):
     
     return render(request, "base.html")
@@ -92,6 +97,7 @@ def crn_sent(request, accno):
     
     return render(request, "login.html", {"mssg":"Your CRN is sent."})
 
+@login_required(login_url='login')
 def profile(request):
     print(request.user.username)
     if request.user.username:
@@ -99,7 +105,15 @@ def profile(request):
         abb.checkuser(request.user)
     else:
         print("bruh")
-    return render(request, "profile.html")
+
+    cust_profile = CustomerProfile.objects.get(prof_for=request.user)
+    account = Account.objects.get(acc_for = cust_profile)
+    # print(cust_profile)
+    context = {
+        'cust_profile': cust_profile,
+        'account': account
+    }
+    return render(request, "profile.html", context)
 
 def loan(request):
     return render(request, "loan.html")
