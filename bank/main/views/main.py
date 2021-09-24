@@ -3,7 +3,8 @@ from django.http import HttpResponse
 # from bankbot.actions.actions import ActionBankBalance
 from django.http import HttpResponse
 from django.http import JsonResponse
-
+from django.contrib.auth.decorators import login_required
+from ..models import *
 def index(request):
     # abb = ActionBankBalance()
     # abb.checkuser(request.user)
@@ -15,8 +16,16 @@ def account_no(request):
 def video(request):
     return render(request, "video.html")
 
+@login_required(login_url='login')
 def profile(request):
-    return render(request, "profile.html")
+    cust_profile = CustomerProfile.objects.get(prof_for=request.user)
+    account = Account.objects.get(acc_for = cust_profile)
+    # print(cust_profile)
+    context = {
+        'cust_profile': cust_profile,
+        'account': account
+    }
+    return render(request, "profile.html", context)
 
 def loan(request):
     return render(request, "loan.html")
