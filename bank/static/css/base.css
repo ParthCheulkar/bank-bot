@@ -6,6 +6,12 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+::-webkit-scrollbar{
+  background: #e8f2ff;
+  width: 0px;
+}
+
 /* Side Nav  */
 #sidenav-div{
   margin: 0;

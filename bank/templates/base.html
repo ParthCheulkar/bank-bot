@@ -124,13 +124,20 @@
             <p id="sidenav-title">Pay and Transfer</p>
             <hr/>
             <a class="btn" id="sidenav-link" href="{% url 'transfermoney' %}">Transfer Money</a>
-            <a class="btn" id="sidenav-link" href="#">UPI</a>
+            <!-- <a class="btn" id="sidenav-link" href="#">UPI</a> -->
             <hr/>
             <p id="sidenav-title">Services</p> 
             <hr/>
             <a class="btn" id="sidenav-link" href="#">Cards</a>
             <a class="btn" id="sidenav-link" href="{% url 'loan' %}">Loans</a>
             <a class="btn" id="sidenav-link" href="{% url 'insurance' %}">Insurance</a>
+            <a class="btn" id="sidenav-link" href="#">Policies</a>
+            <a class="btn" id="sidenav-link" href="#">Insurance</a>
+            {% if user.is_authenticated %}
+              <a class="btn" id="sidenav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="btn" id="sidenav-link" href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
       </div>
       <div>
