@@ -17,4 +17,4 @@ class TransactionAdmin(admin.ModelAdmin):
 
 admin.site.register(ImageUpload)
 admin.site.register(VideoUpload)
-admin.site.register(IdUpload)
+# admin.site.register(IdUpload)
