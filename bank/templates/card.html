@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %} {% block title %} Loans | {% endblock title %} {% block pgcss %}
+{% extends 'base.html' %} {% load static %} {% block content %} {% block title %} Card Request | {% endblock title %} {% block pgcss %}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -7,7 +7,7 @@
 />
 <link rel="stylesheet" href="{% static 'css/card.css' %}" />
 
-{% endblock pgcss %} {% block pagetitle %}Loans{% endblock pagetitle %}
+{% endblock pgcss %} {% block pagetitle %}Request A Card{% endblock pagetitle %}
 
 <div id="main">
   <div class="card-div">
@@ -60,8 +60,9 @@
           <option value="2">Credit</option>
           <option value="3">Forex</option>
         </select>
-      
-        <button type="submit">Send Request</button>
+    </div>
+    <div id = "button-div">
+    <button type="submit" id="submit-btn">Send Request</button>
     </div>
   </form>
 </div>
