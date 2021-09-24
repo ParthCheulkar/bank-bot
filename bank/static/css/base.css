@@ -9,7 +9,7 @@ body {
 
 ::-webkit-scrollbar{
   background: #e8f2ff;
-  width: 0px;
+  width: 1px;
 }
 
 /* Side Nav  */
