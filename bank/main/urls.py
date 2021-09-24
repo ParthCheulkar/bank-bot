@@ -13,6 +13,7 @@ urlpatterns = [
     path('loan/', main.loan, name="loan"),
     path('insurance/', main.insurance, name="insurance"),
     path('profile/transactions/', transactions.get_transactions, name="profile-transactions"),
+    path('profile/transactions-json/', transactions.get_transactions_json, name="profile-transactions-json"),
     path('autosuggest/', transactions.autosuggest, name="autosuggest"),
     ## Endpts
     path('getuser/', main.get_user, name="getuser"),

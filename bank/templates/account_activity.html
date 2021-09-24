@@ -4,6 +4,7 @@
 {% block pgcss %} 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css" integrity="sha512-tKGnmy6w6vpt8VyMNuWbQtk6D6vwU8VCxUi0kEMXmtgwW+6F70iONzukEUC3gvb+KTJTLzDKAGGWc1R7rmIgxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock pgcss %}
 
 {% block content %}
@@ -12,13 +13,19 @@
 <div class="row ui-widget col-md-5 offset-md-2">
     <input id="tags">
 </div>
+
+<button type="button" class="offset-md-2" onclick="printJS({printable: someJSONdata, properties: ['transaction_type', 'amount', 'trxn_date', 'trxn_time', 'status', 'remark'], type: 'json'})">
+    Print bank statement
+</button>
+
 <div class="table mt-3 container login-wrap offset-md-2 col-md-8">
-    <table class="table table-hover">
+    <table class="table table-hover" id="pdf">
         <thead>
             <th><h3>Date</h3></th>
             <th><h3>Amount</h3></th>
             <th><h3>Activity</h3></th>
             <th><h3>Account no</h3></th>
+            <th><h3>Time</h3></th>
         </thead>
 
         <tbody>
@@ -29,25 +36,62 @@
                 <td><h5> ₹ {{transaction.amount}} </h5></td>
                 <td><h5>{{transaction.status}}</h5></td>
                 <td><h5>{{user_account.acc_no}}</h5></td>
+                <td><h5>{{transaction.trxn_time}}</h5></td>
             </tr>
             {% endfor %}
             
         </tbody>
     </table>
-
+    <!-- <button id="download-btn">Download BS</button> -->
+    
 </div>
 </section>
 {% endblock content %}
 
 {% block pgjs %}
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
+<!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js" integrity="sha512-/fgTphwXa3lqAhN+I8gG8AvuaTErm1YxpUjbdCvwfTMyv8UZnFyId7ft5736xQ6CyQN4Nzr21lBuWWA9RTCXCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <script src="{% static 'js/account_activity.js' %}"></script> -->
 <script>
-
+// window.jsPDF = window.jspdf.jsPDF;
 $( function() {
       $( "#tags" ).autocomplete({
       	source: "{% url 'autosuggest' %}"
     });
 });
+</script>
+<script>
+    const endpt = "{% url 'profile-transactions-json' %}"
+    // fetch(endpt, {
+    //     method: "GET"
+    // })
+    // .then((response) => console.log(response))
+    var someJSONdata;
+    async function get_transactions() {
+        const response = await fetch(endpt);
+        var data = await response.json();
+        var jsonData = JSON.parse(data) 
+        list = []
+        for (let index = 0; index < jsonData.length; index++) {
+            const element = jsonData[index];
+            list.push(element.fields);
+        }
+        // console.log(list)
+
+        // console.log(jsonData[0].fields);
+        return list;
+    }
+    
+    async function sendDataToPDF() {
+        someJSONdata = await get_transactions();
+    }
+
+    sendDataToPDF();
+    // console.log(someJSONdata);
+    // var someJSONdata= get_transactions();
     
 </script>
 {% endblock pgjs %}
