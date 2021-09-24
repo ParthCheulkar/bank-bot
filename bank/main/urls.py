@@ -4,6 +4,7 @@ from .views import authentication, main, chatroom, transactions
 urlpatterns = [
     path('', main.index, name="base"),
     path('login/', authentication.login, name="login"),
+    path('logout/', authentication.logout, name="logout"),
     path('chatroom/', chatroom.chatroom, name="chatroom"),
     path('transfermoney/', transactions.make_transaction, name="transfermoney"),
     path('login/account_no', main.account_no, name="account_no"),
