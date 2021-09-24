@@ -102,7 +102,7 @@ responses:
   utter_cdlink:
   - text: "http://127.0.0.1:8000/cards/"
   utter_dblink:
-  - text: "http://127.0.0.1:8000/cards/"
+  - text: "http://127.0.0.1:8000/request-a-card/"
   utter_loanlink:
   - text: "http://127.0.0.1:8000/loan/"
   utter_insurancelink:

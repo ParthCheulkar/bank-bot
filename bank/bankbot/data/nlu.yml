@@ -101,8 +101,8 @@ nlu:
 
 - intent: bank
   examples: |
-    - what is my [account](account) number
-    - what is my [crn](account) number code
+    - what is my account [number](account)
+    - what is my [crn](account) code
     - what is my account [balance](account)
     - i want to check my bank [statements](account)
     - what are my bank [statements](account)
