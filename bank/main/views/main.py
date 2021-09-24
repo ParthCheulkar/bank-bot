@@ -90,8 +90,8 @@ def crn_sent(request, accno):
         to=phone, 
         from_="+15743672651",
         body=f"Your CRN is: {user_prof.cust_crn_no}")
-
-    return render(request, "crn_sent.html")
+    
+    return render(request, "login.html", {"mssg":"Your CRN is sent."})
 
 def profile(request):
     return render(request, "profile.html")
