@@ -11,7 +11,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 import os
 
-class ActionBankBalance(Action):
+class ActionBank(Action):
     
     acc = ""
     print("hello1")
@@ -40,7 +40,7 @@ class ActionBankBalance(Action):
 
     
     def name(self) -> Text:
-        return "action_bank_balance"
+        return "action_bank"
     
 
     def run(self, dispatcher: CollectingDispatcher,
@@ -62,8 +62,10 @@ class ActionBankBalance(Action):
                 n = blob['value']
             if n == "number":
                 msg = lie[0]
-            if n == "ifsc":
+            if n == "crn":
                 msg = lie[1]
+            if n == "balance":
+                msg = lie[2]
 
         dispatcher.utter_message(text=f"Here, {msg}")
 

@@ -24,8 +24,8 @@ stories:
   - action: utter_greet
   - intent: register
   - action: utter_reg
-  - intent: bank_account
-  - action: action_bank_balance
+  - intent: bank
+  - action: action_bank
   - action: utter_acclink
   - action: utter_did_that_help
   - intent: affirm

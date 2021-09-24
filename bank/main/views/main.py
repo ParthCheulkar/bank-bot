@@ -1,11 +1,12 @@
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse 
-from bankbot.actions.actions import ActionBankBalance
+from bankbot.actions.actions import ActionBank
 from django.http import HttpResponse
 from django.http import JsonResponse
 
 def index(request):
-    abb = ActionBankBalance()
+    abb = ActionBank()
     abb.checkuser(request.user)
     return render(request, "base.html")
 

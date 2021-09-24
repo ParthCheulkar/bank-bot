@@ -99,13 +99,13 @@ nlu:
     - what are the interest rates for loans
     - what are interest rates for homes
 
-- intent: bank_account
+- intent: bank
   examples: |
-    - what is my account [number](account)
-    - what is my [ifsc](account) code
-    - how can i view my account
+    - what is my [account](account) number
+    - what is my [crn](account) number code
+    - what is my account [balance](account)
     - i want to check my bank [statements](account)
-    - how can i check my bank statements
+    - what are my bank [statements](account)
 
 
 - intent: credit_card

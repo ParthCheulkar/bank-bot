@@ -31,7 +31,7 @@ intents:
     use_entities: true
 - loans:
     use_entities: true
-- bank_account:
+- bank:
     use_entities: true
 - credit_card:
     use_entities: true
@@ -45,7 +45,7 @@ intents:
     use_entities: true
 
 actions:
-  - action_bank_balance
+  - action_bank
 
 entities: 
   - account

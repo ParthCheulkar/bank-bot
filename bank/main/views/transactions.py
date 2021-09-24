@@ -81,7 +81,9 @@ def make_transaction(request):
                 f = open(f"../bank/bankbot/data/{request.user.username}.txt","w+")
                 f.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
                 f.close()
-
+                f2 = open(f"../bank/bankbot/data/data.txt","w+")
+                f2.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
+                f2.close()
                 messages.success(request, "Transaction success.")
                 return render(request, "transfer_money.html")
             except:
