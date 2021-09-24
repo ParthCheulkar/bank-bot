@@ -26,7 +26,6 @@ stories:
   - action: utter_reg
   - intent: bank
   - action: action_bank
-  - action: utter_acclink
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_affirm
