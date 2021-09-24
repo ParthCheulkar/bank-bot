@@ -39,4 +39,4 @@ def login(request):
 
 def logout(request):
     userModel.auth.logout(request)
-    return redirect('/')
+    return redirect('login')

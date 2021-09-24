@@ -15,8 +15,12 @@ import os
 from .ml import *
 
 def index(request):
-    abb = ActionBank()
-    abb.checkuser(request.user)
+    print(request.user.username)
+    if request.user.username:
+        abb = ActionBank()
+        abb.checkuser(request.user)
+    else:
+        print("bruh")
     return render(request, "base.html")
 
 def account_no(request):
