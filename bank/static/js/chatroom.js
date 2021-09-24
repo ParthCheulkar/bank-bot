@@ -16,7 +16,7 @@ function init(botLogoPath) {
     //--------------------------- Chatbot Frontend -------------------------------
     const chatContainer = document.getElementById("chat-container");
 
-    template = ` <button class='chat-btn'><img src = "../static/images/comment.png" class = "material-icon" ></button>
+    template = ` <button class='chat-btn'><img src = "/static/images/comment.png" class = "material-icon" ></button>
 
     <div class='chat-popup'>
     
@@ -25,7 +25,7 @@ function init(botLogoPath) {
 				<img src='${botLogoPath}' alt='Chat Bot image' class='bot-img'> 
 			</div>
 			<h3 class='bot-title'>Covid Bot</h3>
-			<button class = "expand-chat-window" ><img src="../static/images/open_fullscreen.png" class="material-icon" ></button>
+			<button class = "expand-chat-window" ><img src="/static/images/open_fullscreen.png" class="material-icon" ></button>
 		</div>
 
 		<div class='chat-area'>
@@ -79,10 +79,10 @@ function init(botLogoPath) {
         if (chatPopup.style.display == "none" && mobileDevice) {
             chatPopup.style.display = "flex"
             chatInput.focus();
-            chatBtn.innerHTML = `<img src = "../static/images/close.png" class = "material-icon" >`
+            chatBtn.innerHTML = `<img src = "/static/images/close.png" class = "material-icon" >`
         } else if (mobileDevice) {
             chatPopup.style.display = "none"
-            chatBtn.innerHTML = `<img src = "../static/images/comment.png" class = "material-icon" >`
+            chatBtn.innerHTML = `<img src = "/static/images/comment.png" class = "material-icon" >`
         } else {
             mobileView()
         }
@@ -98,16 +98,16 @@ function init(botLogoPath) {
 
     expandWindow.addEventListener("click", (e) => {
         // console.log(expandWindow.innerHTML)
-        if (expandWindow.innerHTML == '<img src="../static/images/open_fullscreen.png" class="material-icon">') {
-            expandWindow.innerHTML = `<img src = "../static/images/close_fullscreen.png" class = 'material-icon'>`
+        if (expandWindow.innerHTML == '<img src="/static/images/open_fullscreen.png" class="material-icon">') {
+            expandWindow.innerHTML = `<img src = "/static/images/close_fullscreen.png" class = 'material-icon'>`
             root.style.setProperty('--chat-window-height', 80 + "%");
             root.style.setProperty('--chat-window-total-width', 85 + "%");
             chatHeader.style.width = "100%";
-        } else if (expandWindow.innerHTML == '<img src="../static/images/close.png" class="material-icon">') {
+        } else if (expandWindow.innerHTML == '<img src="/static/images/close.png" class="material-icon">') {
             chatPopup.style.display = "none"
             chatBtn.style.display = "block"
         } else {
-            expandWindow.innerHTML = `<img src = "../static/images/open_fullscreen.png" class = "material-icon" >`
+            expandWindow.innerHTML = `<img src = "/static/images/open_fullscreen.png" class = "material-icon" >`
             root.style.setProperty('--chat-window-height', 500 + "px");
             root.style.setProperty('--chat-window-total-width', 380 + "px");
         }

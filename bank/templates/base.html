@@ -117,14 +117,13 @@
       </div> {% endcomment %}
      
         <div id="sidenav-div">
+            <a class="btn" id="sidenav-link" href="#"> {{ request.user }}</a>
             <a class="btn" id="sidenav-link" href="{% url 'profile' %}">My Profile</a>
             <a class="btn" id="sidenav-link" href="{% url 'profile-transactions' %}">Account Activity</a>
-            <a class="btn" id="sidenav-link" href="#">Statement</a>
             <hr/>
             <p id="sidenav-title">Pay and Transfer</p>
             <hr/>
             <a class="btn" id="sidenav-link" href="{% url 'transfermoney' %}">Transfer Money</a>
-            <a class="btn" id="sidenav-link" href="#">UPI</a> 
             <hr/>
             <p id="sidenav-title">Services</p> 
             <hr/>
@@ -159,7 +158,7 @@
   <script>
     createChatBot(
       (host = "http://localhost:5005/webhooks/rest/webhook/"),
-      (botLogo = "../static/images/bot-logo.png"),
+      (botLogo = "/static/images/bot-logo.png"),
       (title = "Bank BOT "),
       (welcomeMessage = "Hey, i am Bank Bot "),
       (inactiveMsg =
