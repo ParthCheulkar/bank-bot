@@ -98,6 +98,12 @@ def crn_sent(request, accno):
 def profile(request):
     print(request.user.username)
     if request.user.username:
+        user = request.user
+        # user = User.objects.get(username="Shyren@473793737284")
+        user_account = Account.objects.get(acc_for=CustomerProfile.objects.get(prof_for=user))
+        f = open(f"../bank/bankbot/data/{request.user.username}.txt","w+")
+        f.write(f"{user_account.acc_no}\n{user_account.acc_for.cust_crn_no}\n{user_account.acc_bal}")
+        f.close()
         abb = ActionBank()
         abb.checkuser(request.user)
     else:

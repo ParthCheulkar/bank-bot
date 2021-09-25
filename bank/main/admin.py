@@ -15,6 +15,10 @@ class AccountAdmin(admin.ModelAdmin):
 class TransactionAdmin(admin.ModelAdmin):
     list_display=['id', 'sender', 'receiver', 'amount', 'trxn_date', 'trxn_time','status']
 
+@admin.register(CardRequest)
+class CardRequestAdmin(admin.ModelAdmin):
+    list_display=['id', 'card_for', 'card_type', 'holder_name', 'verified']
+
 admin.site.register(ImageUpload)
 admin.site.register(VideoUpload)
 # admin.site.register(IdUpload)
